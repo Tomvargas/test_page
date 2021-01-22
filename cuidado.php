@@ -20,9 +20,9 @@
 			</span>
 			<nav class="navigation">
 				<ul>
-					<li><a href="#">Registro</a></li>
+					<li><a href="home.php">Registro</a></li>
 					<li><a href="control.php">Control</a></li>
-					<li><a href="#">Cuidado</a></li>
+					<li><a href="cuidado.php?n=null">Cuidado</a></li>
 
                     
                     <li><a href="logout.php"><i class="far fa-user"></i>Cerrar sesión</a></li>
@@ -58,11 +58,13 @@
                             $consulta="SELECT codigo, nombre, hectareas FROM registro where codigo=$convert";
                             $resultado = mysqli_query($conexion,$consulta);
                             
+                            
                             while ($valores = mysqli_fetch_array($resultado)) {
 						?>
 					<option value="<?php echo $valores['nombre']?>"><?php echo $valores['nombre']?> </option>;
                         <?php
-                            }					
+                            }	
+                            mysqli_close($conexion);				
                         ?>
 				</select>
 
@@ -80,19 +82,62 @@
 
             <form action="" style=" margin-left:30px; ">
 
-                <label style="float: left">Hectáreas de su cultivo: </label>
-                <input name="hec" style="width: 120px;margin-left: 100px" type="number" placeholder="Hectáreas">
+                <label style="float: left">Inversión en maquinaria: </label>
+                <input name="maq" style="width: 120px" type="number" placeholder="$">
                 
-                <label style="float: left">Distancia horizontal de su espacio de cultivo: </label>
-                <input name="h" style="width: 120px;margin-left: 100px" type="number" placeholder="Metros">
+                <label style="float: left">Inversión en abono: </label>
+                <input name="ab" style="width: 120px" type="number" placeholder="$">
 
-                <label style="float: left">Distancia diagonal de su espacio de cultivo: </label>
-                <input name="d" style="width: 120px;margin-left: 100px" type="number" placeholder="Metros">
+                <label style="float: left">Inversion en pesticidas: </label>
+                <input name="pe" style="width: 120px" type="number" placeholder="$">
 
-                <input value="CALCULAR" type="button" onclick="calculate(h.value, d.value, hec.value)" >			
+                <label style="float: left;margin-right: 10px">Inversion en semillas: </label>
+                <input name="se" style="width: 120px" type="number" placeholder="$">
+
+                <input value="CALCULAR EFECTIVIDAD" type="button" onclick="calculate(maq.value, ab.value, pe.value, se.value)" >			
             
             </form>
+
+                <div id="res" style="display: none; width:700px; border-color: green; border-style: solid; margin-left: 20%; border-radius:20px">
+                    <h1>RESULTADOS</h1>
+                    <h3 id="tinv">Total de inversiones: $200</h3>
+                    <h3 id="tot">Total a generar: $850</h3>
+                    <h3 id="eff">Efectividad de cosecha: $807</h3>
+                    <p>95% del total generado</p>
+                    <h3 id="perd">Perdida de cosecha: $42.50</h3>
+                    <p>5% del total generado</p>
+                </div>
+
 		</div>
+
+        <div>
+        <hr/>
+            <h1>CALENDARIO PARA CULTIVO</h1>
+            <form >
+                <h4>SELECCIONAR UNA FECHA</h4>
+                <select style="padding: 10px;" name="cb2"  id="combo2" >
+                    <option value="0">Seleccionar</option>
+                        <?php
+
+                            require('conexion.php');    
+                            
+                            $consulta="SELECT codigo, fecha FROM registro where codigo=$convert";
+                            $resultado = mysqli_query($conexion,$consulta);
+                            
+                            
+                            while ($valores = mysqli_fetch_array($resultado)) {
+                        ?>
+                    <option value="<?php echo $valores['fecha']?>"><?php echo $valores['fecha']?> </option>;
+                        <?php
+                            }					
+                        ?>
+                </select>
+
+                <input style="align-items:center " type="button"  value="IMPRIMIR DATOS"  />
+                        
+                    
+            </form> 
+        </div>
 
 	</main>
 
@@ -115,11 +160,23 @@
 
     <script>
 
+        function calculate(maq, abo, pes, sem){
+
+            var maquina = parseFloat(maq)
+            var abono = parseFloat(abo)
+            var pesticida = parseFloat(pes)
+            var semilla = parseFloat(sem)
+
+            document.getElementById('res').style.display="block";
+
+        }
+
         function showForms(value){							
             console.log(value);
             if(value === "0"){
                 alert("Debe seleccionar un cultivo para empezar.")
             }else{
+
                 setTitle(value);
                 document.getElementById('showForm').style.display='block';
             }						

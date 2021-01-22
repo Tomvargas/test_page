@@ -23,7 +23,7 @@
 				<ul>
 					<li><a href="home.php">Registro</a></li>
 					<li><a href="control.php">Control</a></li>
-					<li><a href="#">Cuidado</a></li>
+					<li><a href="cuidado.php?n=null">Cuidado</a></li>
 
                     
                     <li><a href="logout.php"><i class="far fa-user"></i>Cerrar sesión</a></li>

@@ -20,9 +20,9 @@
 			</span>
 			<nav class="navigation">
 				<ul>
-					<li><a href="#">Registro</a></li>
+					<li><a href="home.php">Registro</a></li>
 					<li><a href="control.php">Control</a></li>
-					<li><a href="cuidado.php">Cuidado</a></li>
+					<li><a href="cuidado.php?n=null">Cuidado</a></li>
 
                     
                     <li><a href="logout.php"><i class="far fa-user"></i>Cerrar sesión</a></li>
