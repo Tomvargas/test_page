@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tab.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -98,7 +99,7 @@
             
             </form>
 
-                <div id="res" style="display: none; width:700px; border-color: green; border-style: solid; margin-left: 20%; border-radius:20px">
+                <div id="res" style="display: none; width:700px; border-color: green; border-style: solid; margin-left: 30%; border-radius:20px">
                     <h1>RESULTADOS</h1>
                     <h3 id="tinv">Total de inversiones: $200</h3>
                     <h3 id="tot">Total a generar: $850</h3>
@@ -133,10 +134,45 @@
                         ?>
                 </select>
 
-                <input style="align-items:center " type="button"  value="IMPRIMIR DATOS"  />
+                <input style="align-items:center " type="button"  value="IMPRIMIR DATOS" onclick="set_table(cb2.value)" />
                         
                     
             </form> 
+
+            <div class="tablita">
+                <h2 id="fech_cult"></h2>
+            <table class="tablita">
+                <tr>
+                    <th>Fechas de abono</th>
+                    <th>Abono a utilizar</th>
+                    <th>Fecha de fumigación</th>
+                    <th>Pestizida a utilizar</th>
+                    <th>Fecha de cosecha</th>
+                </tr>
+                <tr>
+                    <th id="fech1_fech"></th>
+                    <th id="fech1_abono"></th>
+                    <th id="fech1_fumi"></th>
+                    <th id="fech1_pes"></th>
+                    <th id="fech1_cos"></th>
+                </tr>
+                <tr>
+                    <th id="fech2_fech"></th>
+                    <th id="fech2_abono"></th>
+                    <th id="fech2_fumi"></th>
+                    <th id="fech2_pes"></th>
+                    <th id="fech2_cos"></th>
+                </tr>
+                <tr>
+                    <th id="fech3_fech"></th>
+                    <th id="fech3_abono"></th>
+                    <th id="fech3_fumi"></th>
+                    <th id="fech3_pes"></th>
+                    <th id="fech3_cos"></th>
+                </tr>
+            </table>
+            </div>
+
         </div>
 
 	</main>
@@ -159,6 +195,55 @@
 
 
     <script>
+
+        function set_table(Dat){
+            if (Dat === "0"){
+                alert('Debe seleccionar una fecha')
+            }else{
+                var fecha = new Date(Dat);
+            var dias = 3; // Número de días a agregar + 1
+            var diasn = -3;
+            var f1 = fecha;
+            fecha.setDate(fecha.getDate() + dias);
+            
+            console.log(fecha)//---------------------------imprime la fecha despues de 3 dias
+            document.getElementById('fech1_fech').innerHTML = fecha.toISOString().slice(0,10)+"<br>(3 días luego del inicio del cultivo)";
+            fecha.setDate(fecha.getDate() + diasn);
+
+            dias = 13; // Número de días a agregar + 1
+            diasn = -13
+            fecha.setDate(fecha.getDate() + dias);
+            document.getElementById('fech2_fech').innerHTML = fecha.toISOString().slice(0,10)+"<br>(13 días luego del inicio del cultivo)";
+            console.log(fecha)//---------------------------imprime la fecha despues de 13 dias
+            fecha.setDate(fecha.getDate() + diasn);
+
+            dias = 30; // Número de días a agregar + 1
+            diasn = -30
+            fecha.setDate(fecha.getDate() + dias);
+            document.getElementById('fech3_fech').innerHTML = fecha.toISOString().slice(0,10)+"<br>(30 días luego del inicio del cultivo)";
+            console.log(fecha)//---------------------------imprime la fecha despues de 30 dias
+            fecha.setDate(fecha.getDate() + diasn);
+
+
+            document.getElementById('fech1_abono').innerHTML = "2 a 3 bolsas de 50Kg de Urea por cada hectarea";
+            document.getElementById('fech1_fumi').innerHTML = "fumigación en contra de semillas no deseadas";
+
+            document.getElementById('fech2_abono').innerHTML = "2 a 3 bolsas de 50Kg de Urea por cada hectarea";
+            document.getElementById('fech2_fumi').innerHTML = "fumigación en contra de insectos no deseados";
+
+            document.getElementById('fech3_abono').innerHTML = "2 a 3 bolsas de 50Kg de Urea por cada hectarea";
+            document.getElementById('fech3_fumi').innerHTML = "fumigación en contra de insectos o plagas no deseadas";
+            
+            dias = 60; // Número de días a agregar + 1
+            diasn = -60
+            fecha.setDate(fecha.getDate() + dias);
+            document.getElementById('fech3_cos').innerHTML = fecha.toISOString().slice(0,10)+"<br>(60 días luego del inicio del cultivo ya puede cosechar)";
+            console.log(fecha)//---------------------------imprime la fecha despues de 30 dias
+            fecha.setDate(fecha.getDate() + diasn);
+            }
+            
+            
+        }
 
         function calculate(maq, abo, pes, sem){
 
