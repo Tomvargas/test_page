@@ -17,7 +17,7 @@ $consulta = 'UPDATE registro	SET hectareas='.$ha.', D_horizontal='.$dh.', D_diag
 
 if(mysqli_query($conexion, $consulta)){
 					
-	echo "<script>document.location='control.php'; alert('Los datos de su cultivo se han guardado correctamente')</script>";
+	echo "<script>document.location='cuidado.php?n=null'; alert('Los datos de su cultivo se han guardado correctamente')</script>";
 	;
 }
 else{

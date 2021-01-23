@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
 	<header class="header">
 		<div class="container logo-nav-container">
 			<div class="logdiv">
@@ -56,7 +58,7 @@
 						<?php			
                             require('conexion.php');    
                             
-                            $consulta="SELECT codigo, nombre, hectareas FROM registro where codigo=$convert";
+                            $consulta="SELECT codigo, nombre FROM registro where codigo=$convert";
                             $resultado = mysqli_query($conexion,$consulta);
                             
                             
@@ -64,6 +66,7 @@
 						?>
 					<option value="<?php echo $valores['nombre']?>"><?php echo $valores['nombre']?> </option>;
                         <?php
+                                
                             }	
                             mysqli_close($conexion);				
                         ?>
@@ -76,12 +79,13 @@
             </div>
 			
 		</div>
+        <div id="pos"></div>
 
-        <div id="showForm" style="display: none">
-            <h1 style="color:green" id="titlec"></h1>
-            <h3>insertar datos de inversión</h3>
+        <div id="showForm" style="display: none; margin-top: 50px">
+            <h1 style="color:green; margin-top:100px" id="titlec"></h1>
+            <h3 style="margin-top:50px">insertar datos de inversión</h3>
 
-            <form action="" style=" margin-left:30px; ">
+            <form action="" style=" margin-left:30%; ">
 
                 <label style="float: left">Inversión en maquinaria: </label>
                 <input name="maq" style="width: 120px" type="number" placeholder="$">
@@ -95,21 +99,12 @@
                 <label style="float: left;margin-right: 10px">Inversion en semillas: </label>
                 <input name="se" style="width: 120px" type="number" placeholder="$">
 
-                <input value="CALCULAR EFECTIVIDAD" type="button" onclick="calculate(maq.value, ab.value, pe.value, se.value)" >			
+                <input style="width: 850px" value="GUARDAR Y MOSTAR LOS RESULTADOS" type="button" onclick="calculate(maq.value, ab.value, pe.value, se.value)" >			
             
             </form>
 
-                <div id="res" style="display: none; width:700px; border-color: green; border-style: solid; margin-left: 30%; border-radius:20px">
-                    <h1>RESULTADOS</h1>
-                    <h3 id="tinv">Total de inversiones: $200</h3>
-                    <h3 id="tot">Total a generar: $850</h3>
-                    <h3 id="eff">Efectividad de cosecha: $807</h3>
-                    <p>95% del total generado</p>
-                    <h3 id="perd">Perdida de cosecha: $42.50</h3>
-                    <p>5% del total generado</p>
-                </div>
-
-		</div>
+        </div>
+        
 
         <div>
         <hr/>
@@ -130,48 +125,51 @@
                         ?>
                     <option value="<?php echo $valores['fecha']?>"><?php echo $valores['fecha']?> </option>;
                         <?php
-                            }					
+                            }	
+                            mysqli_close($conexion);				
                         ?>
                 </select>
 
-                <input style="align-items:center " type="button"  value="IMPRIMIR DATOS" onclick="set_table(cb2.value)" />
+                <input style="align-items:center " type="button"  value="MOSTRAR DATOS" onclick="set_table(cb2.value)" />
                         
                     
             </form> 
 
-            <div class="tablita">
+            <div id="tabli" class="tablita">
                 <h2 id="fech_cult"></h2>
-            <table class="tablita">
-                <tr>
-                    <th>Fechas de abono</th>
-                    <th>Abono a utilizar</th>
-                    <th>Fecha de fumigación</th>
-                    <th>Pestizida a utilizar</th>
-                    <th>Fecha de cosecha</th>
-                </tr>
-                <tr>
-                    <th id="fech1_fech"></th>
-                    <th id="fech1_abono"></th>
-                    <th id="fech1_fumi"></th>
-                    <th id="fech1_pes"></th>
-                    <th id="fech1_cos"></th>
-                </tr>
-                <tr>
-                    <th id="fech2_fech"></th>
-                    <th id="fech2_abono"></th>
-                    <th id="fech2_fumi"></th>
-                    <th id="fech2_pes"></th>
-                    <th id="fech2_cos"></th>
-                </tr>
-                <tr>
-                    <th id="fech3_fech"></th>
-                    <th id="fech3_abono"></th>
-                    <th id="fech3_fumi"></th>
-                    <th id="fech3_pes"></th>
-                    <th id="fech3_cos"></th>
-                </tr>
-            </table>
+                <table class="tablita">
+                    <tr>
+                        <th>Fechas de abono</th>
+                        <th>Abono a utilizar</th>
+                        <th>Fecha de fumigación</th>
+                        <th>Pestizida a utilizar</th>
+                        <th>Fecha de cosecha</th>
+                    </tr>
+                    <tr>
+                        <th id="fech1_fech"></th>
+                        <th id="fech1_abono"></th>
+                        <th id="fech1_fumi"></th>
+                        <th id="fech1_pes"></th>
+                        <th id="fech1_cos"></th>
+                    </tr>
+                    <tr>
+                        <th id="fech2_fech"></th>
+                        <th id="fech2_abono"></th>
+                        <th id="fech2_fumi"></th>
+                        <th id="fech2_pes"></th>
+                        <th id="fech2_cos"></th>
+                    </tr>
+                    <tr>
+                        <th id="fech3_fech"></th>
+                        <th id="fech3_abono"></th>
+                        <th id="fech3_fumi"></th>
+                        <th id="fech3_pes"></th>
+                        <th id="fech3_cos"></th>
+                    </tr>
+                </table>
             </div>
+            <div onclick="javascript:window.imprimirDIV('tabli');"  style="background-color:lightgreen; padding:20px; width:600px; margin-left: 35%; margin-bottom:50px; cursor:pointer; border-radius:15px; color:white">IMPRIMIR</div>
+
 
         </div>
 
@@ -193,8 +191,47 @@
 
 	</footer>
 
+    <?php 
+        require('conexion.php');
+
+        $nam = $_GET['n'];
+        
+        if ($nam != 'null'){
+            $consulta="SELECT subtotal FROM registro where nombre='".$nam."';";
+            $resultado = mysqli_query($conexion,$consulta);
+            $valores = mysqli_fetch_array($resultado);
+            echo "<script>if('".$valores['subtotal']."' === ''){
+                alert('Usted no ha registrado el calculo en control, Por favor, Calcule y Guarde los datos en la página control');
+            }else{
+                
+                if('$nam' !== 'null'){
+                    setTitle('$nam')
+                    document.getElementById('showForm').style.display='block';
+                }
+        
+                function setTitle(value){
+                    
+                    var v= '-- '+value+' --'
+                    document.getElementById('titlec').innerHTML = v;
+                }    
+
+            }
+            
+            </script>";
+            mysqli_close($conexion);
+        }
+    ?>
 
     <script>
+
+        function imprimirDIV(contenido) {
+            var ficha = document.getElementById(contenido);
+            var ventanaImpresion = window.open(' ', 'popUp');
+            ventanaImpresion.document.write(ficha.innerHTML);
+            ventanaImpresion.document.close();
+            ventanaImpresion.print();
+            ventanaImpresion.close();
+        }
 
         function set_table(Dat){
             if (Dat === "0"){
@@ -245,6 +282,17 @@
             
         }
 
+        
+    </script>
+    <?php
+        require('conexion.php');
+        $nam = $_GET['n'];
+
+        $consulta="SELECT subtotal FROM registro where nombre='".$nam."';";
+        $resultado = mysqli_query($conexion,$consulta);
+        $valores = mysqli_fetch_array($resultado);
+
+        echo "<script>
         function calculate(maq, abo, pes, sem){
 
             var maquina = parseFloat(maq)
@@ -252,28 +300,56 @@
             var pesticida = parseFloat(pes)
             var semilla = parseFloat(sem)
 
-            document.getElementById('res').style.display="block";
+            if(maq==='' || abo==='' || pes==='' || sem===''){
+                alert('Debe ingresar todos los datos de inversión')
+            }else{
+                var subtot = parseFloat('".$valores['subtotal']."');
+
+            var InTot = maquina+abono+pesticida+semilla;
+            var tot = subtot-InTot;
+            var eff = (tot*95)/100;
+            var per = (tot*5)/100;
+
+            console.log(InTot);
+            console.log(tot);
+            console.log(eff);
+            console.log(per);            
+            
+            
+            setTimeout(gosavedb(maq, abo, pes, sem, InTot, tot, eff, per), 4000);
+            }
 
         }
 
         function showForms(value){							
             console.log(value);
-            if(value === "0"){
-                alert("Debe seleccionar un cultivo para empezar.")
+            if(value === '0'){
+                alert('Debe seleccionar un cultivo para empezar.')
             }else{
-
-                setTitle(value);
-                document.getElementById('showForm').style.display='block';
+                document.location='cuidado.php?n='+value+'#pos';
             }						
         }
+        function gosavedb(maq, abo, pes, sem, InTot, tot, eff, per){
+            var op = confirm('¿Está seguro de guardar los datos? Será redireccionado a la página de sus resultados al aceptar.');
 
-        function setTitle(value){
-            
-            var v= "-- "+value+" --"
-            document.getElementById('titlec').innerHTML = v;
+            if (op == true){
+                var name = getParameterByName('n');
+                console.log(name);
+                var ur = 'savedata.php?ma='+maq+'&ab='+abo+'&pe='+pes+'&se='+sem+'&invt='+InTot+'&tot='+tot+'&eff='+eff+'&per='+per+'&name='+name;
+                document.location=ur;
+            }
         }
 
-	</script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
+            results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        </script>";
+        
+    ?>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
