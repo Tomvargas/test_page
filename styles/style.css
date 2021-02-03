@@ -7,12 +7,10 @@ body{
 	text-align: center;
 	padding-top: 5rem;
 	background-color: #FFFEDB; 
-	/*#FFF55A;*/
 }
 
 p{
 	margin-bottom: 1.6em;
-
 }
 
 h1{
@@ -43,6 +41,7 @@ h1{
 banner{
 	z-index: 1;
 }
+
 .header a{
 	color: white;
 	text-decoration: none;
@@ -58,7 +57,6 @@ banner{
 	font-size:4rem;
 	font-family: 'Bangers', cursive;
 }
-
 
 .logo-nav-container{
 	display: flex;
@@ -119,9 +117,9 @@ banner{
 		transition: all 0.4s linear;
 		border-radius: 5px;
 	}
-		.navigation ul li a:hover{
-			background: #4a4a4a;
-		}
+	.navigation ul li a:hover{
+		background: #4a4a4a;
+	}
 
 }
 
@@ -212,8 +210,6 @@ input[type="submit"]:hover {
     transform: scale(0.95);
 }
 
-
-
 .container-sesion{
     display: flex;
     width: 100%;
@@ -222,8 +218,6 @@ input[type="submit"]:hover {
     margin: 0;
     align-items: center;
     flex-direction: column;
-
-
 }
 .inicio-container{
     display: grid;
@@ -232,12 +226,10 @@ input[type="submit"]:hover {
     width: 1200px;
     height: auto;
     background: #fff;
-
 }
 
 .derecha, .izquierda{
     flex: 1;
-
 }
 
 .derecha p{
@@ -269,9 +261,6 @@ input[type="submit"]:hover {
     }
 }
 
-
-
-
 /*--------BANNER--------*/
 
 .img{
@@ -290,9 +279,6 @@ input[type="submit"]:hover {
 }
 
 .banner{
-    /*align-items: center;
-	position: static;
-    display: flex;*/
 
 	border:3px solid #62c945;
 	margin: auto;
@@ -301,19 +287,15 @@ input[type="submit"]:hover {
 	width: 900px;
     height: 500px;
 	
-
 	background-size: 100% 100%;
-
-
 
 	animation: banner 10s infinite;
 	animation-direction: alternate;
-
 }
 
 @keyframes banner{
 	0%, 30%{
-		background-image: url(img/banner1.jpeg);
+		background-image: url(../img/banner1.jpeg);
 		opacity: 1;
         position: static; 
 	}
@@ -324,7 +306,7 @@ input[type="submit"]:hover {
 	}
 
 	35%, 65%{
-		background-image: url(img/banner2.jpg);
+		background-image: url(../img/banner2.jpg);
 		opacity: 1;
         position: static; 
 	}
@@ -334,7 +316,7 @@ input[type="submit"]:hover {
 	}
 	70%, 100%{
 		opacity: 1;
-		background-image: url(img/banner3.jpg);
+		background-image: url(../img/banner3.jpg);
         position: static; 
 
 	}
@@ -383,8 +365,6 @@ input[type="submit"]:hover {
     border: steelblue solid 1px;
     height: 100%;
 }
-
-
 
 @media only screen and (min-width: 400px) and (max-width: 800px){
 	.content {
@@ -459,10 +439,3 @@ footer .sociales .instagram:hover{
     transform: scale(1.3,1.3);
     color: deeppink;
 }
-
-
-
-
-
-
-

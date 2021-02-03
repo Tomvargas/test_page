@@ -2,7 +2,7 @@
 
 session_start();
 
-include('conexion.php');
+include('./conexion.php');
 
 
 
@@ -10,8 +10,6 @@ $usuario= test_input($_POST['usuario']);
 $password= test_input($_POST['password']);
 $_SESSION['usuario']=$usuario;
 $contrasena= md5($password);
-
-
 
 	$consulta= "SELECT * FROM login where usuariof='$usuario' and password='$contrasena'";
 	$resultado= mysqli_query($conexion, $consulta);
@@ -25,15 +23,13 @@ $contrasena= md5($password);
 		$convert = $extraido['codigo'];
 		$_SESSION['convert']=$convert;
 
-		
 		require('home.php');
 		header("location:home.php");
-
 
 	}
 	else{
 		
-		include("login.html");
+		include("../login.html");
 		$consulta1= "SELECT * FROM login where usuariof='$usuario'";
 		$resultado1= mysqli_query($conexion, $consulta1);
 		$filas1=mysqli_num_rows($resultado1);

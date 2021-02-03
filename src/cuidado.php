@@ -7,18 +7,17 @@ session_start();
 	<title> Inicio</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tab.css">
+	<link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/tab.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-
 	<header class="header">
 		<div class="container logo-nav-container">
 			<div class="logdiv">
-				<img src="img/logo.png" class="logoimg" width="50" height="50">
+				<img src="../img/logo.png" class="logoimg" width="50" height="50">
 				<a href="#" class="logo">Agrocorn</a>
 			</div>
 			<span class="menu-icon">
@@ -37,8 +36,8 @@ session_start();
 			</nav>
 		</div>
 	</header>
-	<div align="center">
-		<img class="img" src="img/banner1.jpeg" width="900" height="400" style="margin-top: -50px;">
+	<div>
+		<img class="img" src="../img/banner1.jpeg" width="900" height="400" style="margin-top: -50px;">
 	</div>
 	<main class="main">
 
@@ -57,7 +56,7 @@ session_start();
 				<select style="padding: 10px;" name="cb1"  id="combo" >
 					<option value="0">Seleccionar</option>
 						<?php			
-                            require('conexion.php');    
+                            require('conexion.php');
                             
                             $consulta="SELECT codigo, nombre FROM registro where codigo=$convert";
                             $resultado = mysqli_query($conexion,$consulta);
@@ -116,7 +115,7 @@ session_start();
                     <option value="0">Seleccionar</option>
                         <?php
 
-                            require('conexion.php');    
+                            require('./conexion.php');    
                             
                             $consulta="SELECT codigo, fecha FROM registro where codigo=$convert";
                             $resultado = mysqli_query($conexion,$consulta);
@@ -193,7 +192,7 @@ session_start();
 	</footer>
 
     <?php 
-        require('conexion.php');
+        require('./conexion.php');
 
         $nam = $_GET['n'];
         
@@ -223,68 +222,8 @@ session_start();
         }
     ?>
 
-    <script>
+    <script src="../scripts/scripts.js"></script>
 
-        function imprimirDIV(contenido) {
-            var ficha = document.getElementById(contenido);
-            var ventanaImpresion = window.open(' ', 'popUp');
-            ventanaImpresion.document.write(ficha.innerHTML);
-            ventanaImpresion.document.close();
-            ventanaImpresion.print();
-            ventanaImpresion.close();
-        }
-
-        function set_table(Dat){
-            if (Dat === "0"){
-                alert('Debe seleccionar una fecha')
-            }else{
-                var fecha = new Date(Dat);
-            var dias = 3; // Número de días a agregar + 1
-            var diasn = -3;
-            var f1 = fecha;
-            fecha.setDate(fecha.getDate() + dias);
-            
-            console.log(fecha)//---------------------------imprime la fecha despues de 3 dias
-            document.getElementById('fech1_fech').innerHTML = fecha.toISOString().slice(0,10)+"<br>(3 días luego del inicio del cultivo)";
-            fecha.setDate(fecha.getDate() + diasn);
-
-            dias = 13; // Número de días a agregar + 1
-            diasn = -13
-            fecha.setDate(fecha.getDate() + dias);
-            document.getElementById('fech2_fech').innerHTML = fecha.toISOString().slice(0,10)+"<br>(13 días luego del inicio del cultivo)";
-            console.log(fecha)//---------------------------imprime la fecha despues de 13 dias
-            fecha.setDate(fecha.getDate() + diasn);
-
-            dias = 30; // Número de días a agregar + 1
-            diasn = -30
-            fecha.setDate(fecha.getDate() + dias);
-            document.getElementById('fech3_fech').innerHTML = fecha.toISOString().slice(0,10)+"<br>(30 días luego del inicio del cultivo)";
-            console.log(fecha)//---------------------------imprime la fecha despues de 30 dias
-            fecha.setDate(fecha.getDate() + diasn);
-
-
-            document.getElementById('fech1_abono').innerHTML = "2 a 3 bolsas de 50Kg de Urea por cada hectarea";
-            document.getElementById('fech1_fumi').innerHTML = "fumigación en contra de semillas no deseadas";
-
-            document.getElementById('fech2_abono').innerHTML = "2 a 3 bolsas de 50Kg de Urea por cada hectarea";
-            document.getElementById('fech2_fumi').innerHTML = "fumigación en contra de insectos no deseados";
-
-            document.getElementById('fech3_abono').innerHTML = "2 a 3 bolsas de 50Kg de Urea por cada hectarea";
-            document.getElementById('fech3_fumi').innerHTML = "fumigación en contra de insectos o plagas no deseadas";
-            
-            dias = 60; // Número de días a agregar + 1
-            diasn = -60
-            fecha.setDate(fecha.getDate() + dias);
-            document.getElementById('fech3_cos').innerHTML = fecha.toISOString().slice(0,10)+"<br>(60 días luego del inicio del cultivo ya puede cosechar)";
-            console.log(fecha)//---------------------------imprime la fecha despues de 30 dias
-            fecha.setDate(fecha.getDate() + diasn);
-            }
-            
-            
-        }
-
-        
-    </script>
     <?php
         require('conexion.php');
         $nam = $_GET['n'];
@@ -352,9 +291,7 @@ session_start();
         
     ?>
 
-
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="scripts.js"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
 </body>

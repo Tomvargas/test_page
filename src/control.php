@@ -5,7 +5,7 @@
 	<title>Inicio</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../styles/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300&display=swap" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" ></script>
@@ -14,7 +14,7 @@
 	<header class="header">
 		<div class="container logo-nav-container">
 			<div class="logdiv">
-				<img src="img/logo.png" class="logoimg" width="50" height="50">
+				<img src="../img/logo.png" class="logoimg" width="50" height="50">
 				<a href="#" class="logo">Agrocorn</a>
 			</div>
 			<span class="menu-icon">
@@ -33,8 +33,8 @@
 			</nav>
 		</div>
 	</header>
-	<div class="" align="center">
-		<img class="img" src="img/banner1.jpeg" width="1000" height="400">
+	<div >
+		<img class="img" src="../img/banner1.jpeg" width="1000" height="400">
 	</div>
 	<main class="main">
 
@@ -47,21 +47,13 @@
 					echo "<h1>Bienvenido $user.....</h1>";
 			?> 
 
-
-
-
-
-
 			<form action="" >
 				<label>Seleccione un cultivo: </label>
 				<select name="cb1"  id="combo" >
 					<option value="0">Seleccionar</option>
 						<?php
 
-			
 						require('conexion.php');
-						/*$convert= $_SESSION['convert'];*/
-						//session_start(); 
 						
 						$consulta="SELECT codigo, nombre, hectareas FROM registro where codigo=$convert";
 						$resultado = mysqli_query($conexion,$consulta);
@@ -128,76 +120,12 @@
 	            </div>
         	</div>
 		</div>
-
 	</footer>
 
-	<script>
-		function sub(name, ha, dh, dd, tr, pl, qt, gn){
-			var u = "setvalues.php?name="+name+"&ha="+ha+"&dh="+dh+"&dd="+dd+"&tr="+tr+"&pl="+pl+"&qt="+qt+"&gn="+gn;
-			//alert(name)
-			window.location=u;
-		}
-
-
-	function setdata(name, ha, dh, dd, tr, pl, qu, gn){
-		
-		document.getElementById('resultados').style.display='block';
-
-		document.getElementById('name').value = name;
-		document.getElementById('hectareas').value = ha;
-		document.getElementById('horizontal').value = dh;
-		document.getElementById('diagonal').value = dd;
-		document.getElementById('trancas').value = tr;
-		document.getElementById('plantas').value = pl;
-		document.getElementById('quintales').value = qu;
-		document.getElementById('ganancia').value = gn;
-
-	}
-
-	function showForms(value){							
-			console.log(value);
-			if(value === "0"){
-				alert("Debe seleccionar un cultivo para empezar.")
-			}else{
-				setTitle(value);
-				document.getElementById('showForm').style.display='block';
-			}						
-		}
-	function setTitle(value){
-		
-		var v= "-- "+value+" --"
-		document.getElementById('titlec').innerHTML = v;
-	}
-
-	function calculate(h, d, hec){
-
-		var name = document.getElementById('combo').value;
-		var quinxha = parseFloat("70");
-		
-
-		var hectareas = parseFloat(hec);
-		
-		var horizontal = (100/parseFloat(h));
-		
-		var diagonal = (100/parseFloat(d));
-		
-		var trancas = horizontal * diagonal;
-		
-		var plantas = trancas * 2;
-		
-		var quintales = quinxha * hectareas;
-		
-		var gananciaEstimada = quintales*15;
-		
-		console.log(hec);
-		setdata(name, hec, h, d, trancas, plantas, quintales, gananciaEstimada)
-	}
-
-	</script>
+	<script src="../scripts/scripts.js"></script>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="scripts.js"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
 </body>

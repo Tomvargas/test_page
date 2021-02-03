@@ -7,7 +7,7 @@ session_start();
 	<title> Inicio</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../styles/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@ session_start();
 	<header class="header">
 		<div class="container logo-nav-container">
 			<div class="logdiv">
-				<img src="img/logo.png" class="logoimg" width="50" height="50">
+				<img src="../img/logo.png" class="logoimg" width="50" height="50">
 				<a href="#" class="logo">Agrocorn</a>
 			</div>
 			<span class="menu-icon">
@@ -34,8 +34,8 @@ session_start();
 			</nav>
 		</div>
 	</header>
-	<div class="" align="center">
-		<img class="img" src="img/banner1.jpeg" width="1000" height="500">
+	<div class="">
+		<img class="img" src="../img/banner1.jpeg" width="1000" height="500">
 	</div>
 	<main class="main">
 
@@ -48,7 +48,6 @@ session_start();
 
 
 			echo "<h1>Bienvenido, $usuario.....</h1>";
-			//echo "<h1>Bienvenido $convert.....</h1>";
 			echo "<h3>Registre un cultivo</h3>"
 			?>
 
@@ -83,7 +82,7 @@ session_start();
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="scripts.js"></script>
+	<script src="../scripts/scripts.js"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
 </body>

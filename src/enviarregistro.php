@@ -9,9 +9,7 @@ include('conexion.php');
 
 $fecha= test_input($_POST['fecha']);
 $nombre= test_input($_POST['nombre']);
-//$_SESSION['convert']= $convert;
 
-//$_SESSION['usuario']=$usuario;
 	$convert=$_SESSION['convert'];
 
 	$consulta= "SELECT * FROM registro where nombre='$nombre' and codigo='$convert'";
@@ -26,7 +24,7 @@ $nombre= test_input($_POST['nombre']);
 
 	}
 	else{
-		//session_start();
+
 		$convert=$_SESSION['convert'];
 		$sql1= "INSERT INTO registro (codigo,nombre, fecha) VALUES ('$convert', '$nombre','$fecha')";
 		if(mysqli_query($conexion, $sql1)){
@@ -38,14 +36,9 @@ document.location=('control.php');
 alert('Registro guardado exitosamente');
 
 </SCRIPT>";
-						
-			//header("location: control.php");
-
 			
 		}
-		else{
-			//echo "Error: ". $sql . "" . mysqli_error($conexion);
-		}
+		
 	}
 	mysqli_free_result($resultado);
 	mysqli_close($conexion);

@@ -4,7 +4,7 @@
 	<title>Registrar nuevo</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../styles/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300&display=swap" rel="stylesheet">
 	<style>
@@ -77,7 +77,7 @@
 	<header class="header">
 		<div class="container logo-nav-container">
 			<div class="logdiv">
-				<img src="img/logo.png" class="logoimg" width="50" height="50">
+				<img src="../img/logo.png" class="logoimg" width="50" height="50">
 				<a href="#" class="logo">Agrocorn</a>
 			</div>
 			<span class="menu-icon">
@@ -89,7 +89,7 @@
 					<li><a href="#">Registro</a></li>
 					<li><a href="#">Control</a></li>
 					<li><a href="#">Cuidado</a></li>                    
-                    <li><a href="login.html"><i class="far fa-user"></i>Iniciar sesión</a></li>
+                    <li><a href="../login.html"><i class="far fa-user"></i>Iniciar sesión</a></li>
 				</ul>			
 			</nav>
 		</div>

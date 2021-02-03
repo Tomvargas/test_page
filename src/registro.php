@@ -8,8 +8,6 @@ require('conexion.php');
 	$telefono= test_input($_POST['txttel']);
 	$direccion= test_input($_POST['txtdir']);
 	$cedula= test_input($_POST['txtcedula']);
-	//$usuario= test_input($_POST['txtnif']);
-
 	$consulta = "SELECT * FROM login where usuariof= '$usuario'";
 	$result = mysqli_query($conexion, $consulta);
 	$filas = mysqli_num_rows($result);

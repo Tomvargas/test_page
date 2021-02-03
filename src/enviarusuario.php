@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-//require('conexion.php');
 
 $usuario= test_input($_POST['txtusuario']);
 $password= test_input($_POST['txtpassword']);
@@ -13,19 +12,7 @@ $telefono= test_input($_POST['txttel']);
 $direccion= test_input($_POST['txtdir']);
 $cedula= test_input($_POST['txtcedula']);
 
-//$convert= $_SESSION['convert'];
-//$usuario= test_input($_POST['txtnif']);
-
-
-//$_SESSION['nombreusuario']= $nombreusuario;
-// $nombreusuario= $_SESSION['nombreusuario'];
-
-//$accion= $_POST['enviar'];
-//require('formregistrousuario.php');
-//	while($var=1){	
-
 $campos= array();
-
 
 	if(empty($direccion)){
 

@@ -4,41 +4,14 @@
 	<title> Inicio</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./styles/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-    <script>
-		function validacion(id){
-			var elem = document.getElementById(id);
-			if(elem.checkValidity())
-				elem.style.borderColor= "#62c945";
-
-			else
-				elem.style.borderColor="red";
-		}
-		function enviado()
-		{
-			var usuarioValido= document.getElementById('usuario').checkValidity();
-			var passwordValido= document.getElementById('password').checkValidity();
-
-			if(usuarioValido && passwordValido){
-				document.getElementById("demo").innerHTML ="Información valida";
-				
-			}
-			else
-				document.getElementById("demo").innerHTML ="Complete los campos correctamente....."
-
-		}
-
-	</script>
-
-
+    <script src="./scripts/scripts.js"></script>
 	
 </head>
 <body>
-
-
 
 	<main class="main">
         <div class="container">
@@ -51,7 +24,7 @@
 	            </div>
 	            <div class="derecha">
 	            
-	                <form action="enviarlogin.php" method="post" class="form">
+	                <form action="./src/enviarlogin.php" method="post" class="form">
 					<h1>Usuario y contraseña</h1>
 					<p id="mensaje"></p>
 					<i class="fas fa-user"></i>
@@ -68,10 +41,9 @@
 	                <hr>
 	                </form>
 	                    
-	                <form action="usuario.php" method="post" class="form">
+	                <form action="./src/usuario.php" method="post" class="form">
 	                <input type="submit" id="crear" value="Crear cuenta nueva">
-				     </form>
-	 
+				     </form>	 
 
 	            </div>
 	        </div>
@@ -95,10 +67,8 @@
 
 	</footer>
 
-	</footer>
-
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="scripts.js"></script>
+	
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
 </body>
