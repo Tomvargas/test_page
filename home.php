@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,9 +42,7 @@
 		<div class="container">	
 
 			<?php
-			if (session_status() !== PHP_SESSION_ACTIVE){
-				session_start();
-			}
+			
 			$usuario = $_SESSION['usuario'];  
 			$convert= $_SESSION['convert'];
 

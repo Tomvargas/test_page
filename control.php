@@ -1,7 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title> Inicio</title>
+	<title>Inicio</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
@@ -39,7 +40,7 @@
 
 		<div class="container">	
 	        <?php
-	        session_start();
+	        
 					$convert= $_SESSION['convert'];
 					$user= $_SESSION['usuario'];
 
@@ -69,7 +70,7 @@
 						?>
 					<option value="<?php echo $valores['nombre']?>"><?php echo $valores['nombre']?> </option>;
 						<?php
-					}					
+					}
 						?>
 				</select>
 

@@ -1,7 +1,9 @@
 <?php
-include('conexion.php');
 
 session_start();
+
+include('conexion.php');
+
 
 $name = $_GET['name'];
 $ha = floatval($_GET['ha']);

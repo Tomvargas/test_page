@@ -1,8 +1,9 @@
 <?php
-include('conexion.php');
-
 
 session_start();
+
+include('conexion.php');
+
 
 
 $usuario= test_input($_POST['usuario']);

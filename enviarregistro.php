@@ -1,9 +1,10 @@
 
 <?php
-include('conexion.php');
-
 
 session_start();
+
+include('conexion.php');
+
 
 
 $fecha= test_input($_POST['fecha']);

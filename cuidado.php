@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,7 +37,7 @@
 			</nav>
 		</div>
 	</header>
-	<div class="" align="center">
+	<div align="center">
 		<img class="img" src="img/banner1.jpeg" width="900" height="400" style="margin-top: -50px;">
 	</div>
 	<main class="main">
@@ -42,9 +45,7 @@
 		<div style="margin-top: -90px;" class="container">	
 
 			<?php
-                if (session_status() !== PHP_SESSION_ACTIVE){
-                    session_start();
-                }
+                
                 $usuario = $_SESSION['usuario'];  
                 $convert= $_SESSION['convert'];
                 echo "<h1>$usuario, seleccione un cultivo que ya haya registrado el subtotal</h1>";
